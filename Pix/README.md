@@ -1,7 +1,7 @@
 # Pix
 Integração Pix
 
-## Model Pix (methods)
+## Model Pix (métodos)
 
 [implementar]
 
@@ -27,3 +27,9 @@ Integração Pix
     pix/pix/receber-pix
 
 - criarConta($conta);
+
+### Implementações
+
+```php
+$three = 3;
+```
