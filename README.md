@@ -11,7 +11,7 @@
 
 ## Guias
 
-1. Guia de Integrações: Onboarding/KYC
+1. Guia de Integrações: Dormentes (Onboarding/KYC)
 2. Guia de Integrações: Pix
 3. Guia de Integrações: Transferências
 4. Guia de Integrações: Boletos
