@@ -159,3 +159,4 @@ Neste caso é importante copiar de métodos existentes toda a dinâmica envolven
         return ($conta->usuario->tipoPessoa()==1) ? $this->criarContaPF($conta) : $this->criarContaPJ($conta); // implemente criarContaPF e criarContaPJ
     }
 ```
+Neste caso, esse tipo de método deveria estar associado ao onboarding (dormentes).
