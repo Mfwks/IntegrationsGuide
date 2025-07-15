@@ -1,6 +1,6 @@
 # Guia de integrações
 
-## Grandes Eixos de Operações
+## Grandes Eixos de Operação
 
 1. Dormentes (Onboarding-KYC)
 2. Pix
