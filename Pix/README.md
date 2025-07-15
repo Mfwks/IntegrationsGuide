@@ -129,20 +129,33 @@
 /pix/pix/consultar-chave
 ```
 ```php
-enviarPix($valor, $mensagem, $chavePix, $banco, $conta, $agencia, $documento, $tipoConta, $nome, $pagador, $identificadorTransacao, $endToEndId, $type, $movPix->id, null, null, $validation_code, $tipo_pagamento_pix)
+    public function enviarPix(float $value, string $mensagem, $chavePix, string $banco, string $numeroConta, string $agencia, string $documento, string $tipoConta, string $nome, Conta $conta, $identificadorTransacao, $endToEndId, ?string $type, ?int $movPixId)
+    {
+
+        // implementação
+
+        return $response->body->transactionCode ?? null;
+    }
 ```
 ## Receber Pix (webhook)
 ```
 /pix/pix/receber-pix
 ```
 ```php
-retornoPix()
+    public function retornoPix($content)
+    {
+        $this->receberPix($content); // implementar receberPix
+    }
 ```
+Neste caso é importante copiar de métodos existentes toda a dinâmica envolvendo a model MovPix e o uso da geraMov em Conta.
 ## Criar Conta
 ```
 /pix/pix/criar-conta-pf
 /pix/pix/criar-conta-pj
 ```
 ```php
-criarConta($conta);
+    public function criarConta($conta)
+    {
+        return ($conta->usuario->tipoPessoa()==1) ? $this->criarContaPF($conta) : $this->criarContaPJ($conta); // implemente criarContaPF e criarContaPJ
+    }
 ```
