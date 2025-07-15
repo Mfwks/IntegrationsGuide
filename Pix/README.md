@@ -3,6 +3,7 @@
 - Consultar Chave Pix
 - Excluir Chave Pix
 - Gerar QRCode Estático
+- Consultar QRCode
 - Enviar Pix
 - Receber Pix (webhook)
 - Criar Conta
@@ -12,19 +13,49 @@
 /pix/pix/criar-chave
 ```
 ```php
-    public function criarChave($conta, $tipo_chave, $chave)
+    public function criarChave(Conta $conta, ?string $tipo_chave, ?string $chave = null)
     {
+
         // implementação
-        return [];
+
+        return $response ?? null;
     }
 ```
 ## Consultar Chave Pix
 ```
-- 
-    
+/pix/pix/consultar-chave   
 ```
 ```php
-consultaChavePix($chavePix, Conta $conta)
+    public function consultaChavePix($key, $conta, $internal = false)
+    {
+
+        // implementação
+
+        $dados = $response->body ?? null;
+
+        if (empty($dados->key)) {
+            return null;
+        }
+
+        $bank = Bancos::findOne(['ispb' => $dados->ispb]);
+
+        // retorno necessário ao app
+        return [
+            'end_to_end_id' => $dados->endToEndId,
+            'chave' => $dados->key,
+            'tipo_chave' => $dados->keyType,
+            'dados_bancarios' => [
+                'banco' => $dados->ispb,
+                'cod_banco' => $banco->numero_banco ?? '',
+                'nome_banco' => $banco->nome_banco ?? '',
+                'conta' => $dados->bankAccountNumber,
+                'agencia' => $dados->bankBranchNumber,
+                'documento' => $dados->nationalRegistration,
+                'tipo_conta' => $dados->bankAccountType,
+                'nome' => $dados->name
+            ],
+        ];
+    }
 ```
 ## Excluir Chave Pix
 ```
@@ -35,13 +66,18 @@ excluirChave($conta, $chave)
 ```
 ## Gerar QRCode Estático
 ```
-/pix/pix/consultar-qrcode
 /pix/pix/gera-qrcode-estatico
 ```
 ```php
-consultaQRCode($emv, $pagador)
 geraQRCodeEstatico(Conta $conta, $valor, $pixelsModulo, $formatoImagem, $externo, $chavePix)   
-```  
+```
+## Consultar QRCode
+```
+/pix/pix/consultar-qrcode
+```
+```php
+consultaQRCode($emv, $pagador) 
+```
 ## Enviar Pix
 ```
 /pix/pix/consultar-chave
@@ -51,14 +87,15 @@ enviarPix($valor, $mensagem, $chavePix, $banco, $conta, $agencia, $documento, $t
 ```
 ## Receber Pix (webhook)
 ```
-pix/pix/receber-pix
+/pix/pix/receber-pix
 ```
 ```php
 retornoPix()
 ```
 ## Criar Conta
 ```
-???
+/pix/pix/criar-conta-pf
+/pix/pix/criar-conta-pj
 ```
 ```php
 criarConta($conta);
