@@ -12,7 +12,7 @@
 ## Guias
 
 1. Guia de Integrações: Dormentes (Onboarding/KYC)
-2. Guia de Integrações: Pix
+2. Guia de Integrações: Pix [https://github.com/Mfwks/IntegrationsGuide/tree/master/Pix]
 3. Guia de Integrações: Transferências
 4. Guia de Integrações: Boletos
 5. Guia de Integrações: Tarifas
