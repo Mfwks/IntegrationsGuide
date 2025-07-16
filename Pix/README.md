@@ -7,7 +7,12 @@
 - Enviar Pix
 - Receber Pix (webhook)
 - Criar Conta
-
+## Introdução
+Todas implementações devem ser feitas na classe do fornecedor e deve-se evitar ao máximo contaminar a classe principal que serve de eixo para operações Pix, a **model Pix**:
+```
+modules/pix/models/Pix.php
+```
+Como no cenário atual é impossível garantir isso para todos os casos, em cada método será adicionado uma nota sobre a necessidade de alteração da **model Pix**
 ## Criar Chave Pix
 ```
 /pix/pix/criar-chave
