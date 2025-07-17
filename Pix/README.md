@@ -142,6 +142,11 @@ Como no cenário atual é impossível garantir isso para todos os casos, em cada
         return $response->body->transactionCode ?? null;
     }
 ```
+---
+
+> ⚠️ **Aviso Importante:** este método força a contaminação da classe eixo, não tem pra onde correr.
+
+---
 ## Receber Pix (webhook)
 ```
 /pix/pix/receber-pix
