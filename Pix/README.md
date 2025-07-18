@@ -157,7 +157,7 @@ Como no cenário atual é impossível garantir isso para todos os casos, em cada
         $this->receberPix($content); // implementar receberPix
     }
 ```
-Neste caso é importante copiar de métodos existentes toda a dinâmica envolvendo a model MovPix e o uso da geraMov em Conta.
+Neste caso é importante copiar de métodos já existentes em outras integrações toda a dinâmica envolvendo a model MovPix e o uso da geraMov em Conta.
 ## Criar Conta
 ```
 /pix/pix/criar-conta-pf
