@@ -7,6 +7,7 @@ Todas implementações devem ser feitas na classe do fornecedor e deve-se evitar
 ```
 modules/boleto/models/BoletoCobranca.php
 ```
+A propósito, as classes dos fornecedores devem estender a classe principal **BoletoCobranca**.
 ## Registrar
 ```
 /boleto/boleto/registrar
