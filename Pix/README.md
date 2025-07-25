@@ -12,7 +12,7 @@ Todas implementações devem ser feitas na classe do fornecedor e deve-se evitar
 ```
 modules/pix/models/Pix.php
 ```
-Como no cenário atual é impossível garantir isso para todos os casos, no método **enviarPix** há uma nota sobre a necessidade de alteração da **model Pix**
+No cenário atual não é possível garantir isso para o método **enviarPix**, há um aviso sobre a necessidade de alteração.
 ## Criar Chave Pix
 ```
 /pix/pix/criar-chave
