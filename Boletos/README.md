@@ -7,7 +7,7 @@ Todas implementações devem ser feitas na classe do fornecedor e deve-se evitar
 ```
 modules/boleto/models/BoletoCobranca.php
 ```
-### Registrar
+## Registrar
 ```
 /boleto/boleto/registrar
 ```
@@ -19,7 +19,7 @@ modules/boleto/models/BoletoCobranca.php
 
     }
 ```
-### Registrar Cobrança
+## Registrar Cobrança
 ```
 /boleto/boleto/registra-cobranca
 ```
