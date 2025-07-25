@@ -4,10 +4,10 @@
 
 1. Dormentes (Onboarding-KYC)
 2. Pix
-3. Transferência (TED)
-4. Boleto
-5. Tarifa
-6. Cartão
+3. Transferências (TED)
+4. Boletos
+5. Tarifas
+6. Cartões
 
 ## Guias
 
