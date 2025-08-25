@@ -4,6 +4,17 @@ namespace app\modules\baas\models; // ou app\modules\pix\models
 
 class NomeDoFornecedor
 {
+    public string $baseUrl;
+
+    public string $access_token;
+
+    public string $cert;
+    public string $key;
+    
+    public string $webhook;
+
+    public bool $fazRecarga = true; # Obrigação do acoplamento
+    
     public function criarChave(Conta $conta, ?string $tipo_chave, ?string $chave = null)
     {
 
