@@ -2,18 +2,18 @@
 
 ## Grandes Eixos de Operação
 
-1. Dormentes (Onboarding-KYC)
-2. Pix
-3. Transferências (TED)
-4. Boletos
+1. Boletos
+2. Cartões
+3. Dormentes (Onboarding-KYC)
+4. Pix
 5. Tarifas
-6. Cartões
+6. Transferências (TED)
 
 ## Guias
 
-1. Guia de Integrações: Dormentes (Onboarding/KYC)
-2. Guia de Integrações: Pix
-3. Guia de Integrações: Transferências
-4. Guia de Integrações: Boletos
+1. Guia de Integrações: Boletos
+2. Guia de Integrações: Cartões
+3. Guia de Integrações: Dormentes (Onboarding/KYC)
+4. Guia de Integrações: Pix
 5. Guia de Integrações: Tarifas
-6. Guia de Integrações: Cartões
+6. Guia de Integrações: Transferências
