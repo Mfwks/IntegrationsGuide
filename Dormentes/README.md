@@ -1,71 +1,18 @@
 # Dormentes (Onboarding-KYC)
 
-PF
+Os dormentes compõe teoricamente eixo com menor risco de contaminação, ao menos até as exigências de implementações de processos KYC personalizados para fornecedores diferentes.
 
-Salvar
-nomeCampos
-caminhoImagem
-decryptToken
-salvaImageSelfTabelaPessoaFisica
-aprovarDireto
-camposVazios
-concluirCadastro
+## Dormente PF (model)
 
-actionIndex
-actionView
-actionCreate
-actionUpdate
-actionDelete
-findModel
-actionLista
-actionSalvar
-actionPrevia
-actionBusca
-actionStatusCadastro
-actionConcluir
-actionPreCadastro
-actionContaPf
-actionContaPfConcluir
-actionConfirma
-actionContaPfCompleta
-verificaExistenciaConta
-verificaExistenciaAgencia
-verificaNome
-verificaNomeMae
-validaCpf
-validaEmail
-validaNomeMae
-validaEstadoCivil
-validaSexo
-validaTelefone
-validaCEP
-validaEndereco
-validaNumero
-validaBairro
-validaCidade
-validaEstado
-validaDataNascimento
+- Salvar: método para salvar campos individualmente na tabela dormente_pf.
+- caminhoImagem: método para caminho da imagem/documento (repetido em várias partes do sistema).
+- decryptToken: método para descriptografar token do aparelho (repetido em várias partes do sistema).
+- salvaImageSelfTabelaPessoaFisica
+- aprovarDireto
+- concluirCadastro: este método está contaminando o eixo Pix na model e no controller tanto na versão PF quanto PJ.
 
-PJ
+## Dormente PJ (model)
 
-nomeCampos
-caminhoImagem
-Salvar
-camposVazios
-concluirCadastro
-
-actionIndex
-actionView
-actionCreate
-actionUpdate
-actionDelete
-findModel
-actionLista
-actionSalvar
-actionPrevia
-actionBusca
-actionConcluir
-actionStatusCadastro
-actionPreCadastro
-actionContaPj
-actionContaPjConcluir
+- caminhoImagem: método para caminho da imagem/documento (repetido em várias partes do sistema).
+- Salvar: método para salvar campos individualmente na tabela dormente_pj.
+- concluirCadastro: este método está contaminando o eixo Pix na model e no controller tanto na versão PF quanto PJ.
