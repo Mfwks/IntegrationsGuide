@@ -1,6 +1,11 @@
 # Boletos (Sumário)
 - registrar
 - registrarBoleto
+- cancelarCobranca
+- cancelaBoletoEmitido
+- atualizaBoletoEmitido
+- statusBoletoEmitido
+- GerarBoletoCobranca
 
 ## Introdução
 Todas implementações devem ser feitas na classe do fornecedor e deve-se evitar ao máximo contaminar a classe principal que serve de eixo para operações Pix, a model Pix:
