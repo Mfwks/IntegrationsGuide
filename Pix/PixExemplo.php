@@ -1,6 +1,14 @@
 <?php
 
+/*
+ * Modelo do Guia de Integrações: https://github.com/Mfwks/IntegrationsGuide/blob/master/Pix/PixExemplo.php
+*/
+
 namespace app\modules\baas\models; // ou app\modules\pix\models
+
+use app\models\Bancos;
+use app\models\Conta;
+use app\models\Utilitarios;
 
 class NomeDoFornecedor
 {
@@ -67,9 +75,13 @@ class NomeDoFornecedor
     {
         
         // implementação
+        $emv   = 'emv_mock'; // tmp
+        $image = 'image_mock'; // tmp
+        $idTx  = 'idTx_mock'; // tmp
+        // implementação
 
         // retorno necessário ao app
-        return ($emv && $image) ? [
+        return ($emv && $image && $idTx) ? [
             'copia_cola'        => $emv,
             'qrcode'            => $image,
             'transaction_id'    => $idTx
@@ -119,8 +131,25 @@ class NomeDoFornecedor
         $this->receberPix($content); // implementar receberPix
     }
 
+    public function receberPix()
+    {
+        // implementação webhook
+    }
+
     public function criarConta($conta)
     {
-        return ($conta->usuario->tipoPessoa()==1) ? $this->criarContaPF($conta) : $this->criarContaPJ($conta); // implemente criarContaPF e criarContaPJ
+        return ($conta->usuario->tipoPessoa()==1) ? $this->criarContaPF($conta) : $this->criarContaPJ($conta);
+    }
+
+    // Seção de Onboarding-KYC
+
+    public function criarContaPF()
+    {
+        // implementação
+    }
+
+    public function criarContaPJ()
+    {
+        // implementação
     }
 }
