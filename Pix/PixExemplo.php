@@ -1,9 +1,5 @@
 <?php
 
-/*
- * Modelo do Guia de Integrações: https://github.com/Mfwks/IntegrationsGuide/blob/master/Pix/PixExemplo.php
-*/
-
 namespace app\modules\baas\models; // ou app\modules\pix\models
 
 use app\models\Bancos;
@@ -25,7 +21,6 @@ class NomeDoFornecedor
     
     public function criarChave(Conta $conta, ?string $tipo_chave, ?string $chave = null)
     {
-
         // implementação
 
         return $response ?? null;
@@ -33,7 +28,6 @@ class NomeDoFornecedor
 
     public function consultaChavePix($key, $conta, $internal = false)
     {
-
         // implementação
 
         $dados = $response->body ?? null;
@@ -43,11 +37,10 @@ class NomeDoFornecedor
             return null;
         }
 
-        $banco = Bancos::findOne(['ispb' => $dados->ispb]);
+        $banco = Bancos::findOne(['ispb' => $dados->ispb]); // as propriedades reais em $dados serão conforme a integração
 
-        // retorno necessário ao app
         return [
-            'end_to_end_id' => $dados->endToEndId,
+            'end_to_end_id' => $dados->endToEndId, // as propriedades reais em $dados serão conforme a integração
             'chave' => $dados->key,
             'tipo_chave' => $dados->keyType,
             'dados_bancarios' => [
@@ -65,7 +58,6 @@ class NomeDoFornecedor
 
     public function excluirChave($conta, $key)
     {
-
         // implementação
 
         return $response->body ?? '0';
@@ -73,7 +65,6 @@ class NomeDoFornecedor
 
     public function geraQRCodeEstatico($conta, $valor, $pixelsModulo, $formatoImagem, $externo, $pix_key) 
     {
-        
         // implementação
         $emv   = 'emv_mock'; // tmp
         $image = 'image_mock'; // tmp
@@ -90,12 +81,21 @@ class NomeDoFornecedor
 
     public function consultaQRCode($emv, Conta $conta)
     {
-        
         // implementação
 
-        $dados = new \StdClass(); // ajuste as propriedades conforme o retorno da integração
+        $dados = new \StdClass();
+        $dados->chave = 'af166d28-a54e-48ad-b220-c728384bdd78'; // ajuste o retorno da integração para essas propriedades canônicas
+        $dados->agencia = '1234';
+        $dados->isbp = '12345678';
+        $dados->conta = '987654';
+        $dados->documento = '12345678901';
+        $dados->nome = 'Fulano de Tal';
+        $dados->tipo = 'CONTA_CORRENTE';
+        $dados->banco = 'Banco Exemplo';
+        $dados->idEndToEnd = 'E123456789012345678901234567890';
+        $dados->idTx = 'TX123456';
+        $dados->tipo_transferencia = 'PIX';
 
-        // retorno necessário ao app
         return empty($dados->chave) ? false : [
             'chave' => $dados->chave,
             'dados_bancarios' => [
@@ -114,13 +114,12 @@ class NomeDoFornecedor
             'informacoes_adicionais' => 'valor',
             'valor' => floatval('final_value_cents'),
             'tipo_chave' => Utilitarios::identificarTipoChavePix($dados->chave),
-            'type' => $dados->tipo_transferencia ?? '',
+            'type' => $dados->tipo_transferencia ?? ''
         ];
     }
 
     public function enviarPix(float $value, string $mensagem, $chavePix, string $banco, string $numeroConta, string $agencia, string $documento, string $tipoConta, string $nome, Conta $conta, $identificadorTransacao, $endToEndId, ?string $type, ?int $movPixId)
     {
-
         // implementação
 
         return $response->body->transactionCode ?? null;
