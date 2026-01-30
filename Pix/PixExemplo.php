@@ -23,7 +23,7 @@ class NomeDoFornecedor
     {
         // implementação
 
-        return $response ?? null;
+        return key ?? '0';
     }
 
     public function consultaChavePix($key, $conta, $internal = false)
@@ -122,7 +122,12 @@ class NomeDoFornecedor
     {
         // implementação
 
-        return $response->body->transactionCode ?? null;
+        return $transactionCode ?? null;
+    }
+
+    public function podeEnviar()
+    {
+        // implementar: obrigação do acomplamento
     }
 
     public function retornoPix($content)
