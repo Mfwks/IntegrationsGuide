@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\baas\models; // ou app\modules\pix\models
+namespace app\modules\baas\models; // Ou app\modules\pix\models
 
 use app\models\Bancos;
 use app\models\Conta;
@@ -21,26 +21,26 @@ class NomeDoFornecedor
     
     public function criarChave(Conta $conta, ?string $tipo_chave, ?string $chave = null)
     {
-        // implementação
+        // Implementação
 
-        return key ?? '0';
+        return $key ?? '0';
     }
 
     public function consultaChavePix($key, $conta, $internal = false)
     {
-        // implementação
+        // Implementação
 
         $dados = $response->body ?? null;
 
-        // as propriedades reais em $dados serão conforme a integração
+        // As propriedades reais em $dados serão conforme a integração
         if (empty($dados->key)) {
             return null;
         }
 
-        $banco = Bancos::findOne(['ispb' => $dados->ispb]); // as propriedades reais em $dados serão conforme a integração
+        $banco = Bancos::findOne(['ispb' => $dados->ispb]); // As propriedades reais em $dados serão conforme a integração
 
         return [
-            'end_to_end_id' => $dados->endToEndId, // as propriedades reais em $dados serão conforme a integração
+            'end_to_end_id' => $dados->endToEndId, // As propriedades reais em $dados serão conforme a integração
             'chave' => $dados->key,
             'tipo_chave' => $dados->keyType,
             'dados_bancarios' => [
@@ -58,20 +58,20 @@ class NomeDoFornecedor
 
     public function excluirChave($conta, $key)
     {
-        // implementação
+        // Implementação
 
         return $response->body ?? '0';
     }
 
     public function geraQRCodeEstatico($conta, $valor, $pixelsModulo, $formatoImagem, $externo, $pix_key) 
     {
-        // implementação
+        // Implementação
         $emv   = 'emv_mock'; // tmp
         $image = 'image_mock'; // tmp
         $idTx  = 'idTx_mock'; // tmp
-        // implementação
+        // Implementação
 
-        // retorno necessário ao app
+        // Retorno necessário ao app
         return ($emv && $image && $idTx) ? [
             'copia_cola'        => $emv,
             'qrcode'            => $image,
@@ -81,10 +81,10 @@ class NomeDoFornecedor
 
     public function consultaQRCode($emv, Conta $conta)
     {
-        // implementação
+        // Implementação
 
         $dados = new \StdClass();
-        $dados->chave = 'af166d28-a54e-48ad-b220-c728384bdd78'; // ajuste o retorno da integração para essas propriedades canônicas
+        $dados->chave = 'af166d28-a54e-48ad-b220-c728384bdd78'; // Ajuste o retorno da integração para essas propriedades canônicas
         $dados->agencia = '1234';
         $dados->isbp = '12345678';
         $dados->conta = '987654';
@@ -120,24 +120,31 @@ class NomeDoFornecedor
 
     public function enviarPix(float $value, string $mensagem, $chavePix, string $banco, string $numeroConta, string $agencia, string $documento, string $tipoConta, string $nome, Conta $conta, $identificadorTransacao, $endToEndId, ?string $type, ?int $movPixId)
     {
-        // implementação
+        // Implementação
 
         return $transactionCode ?? null;
     }
 
     public function podeEnviar()
     {
-        // implementar: obrigação do acomplamento
+        // Implementar: obrigação do acomplamento
     }
 
     public function retornoPix($content)
     {
-        $this->receberPix($content); // implementar receberPix
+        $this->receberPix($content); // Implementar receberPix
     }
 
     public function receberPix()
     {
-        // implementação webhook
+        // Implementação webhook
+        $conta->cobrarTarifa($chave, $valor, $mov_id); // Se tudo ok, cobrar tarifa 
+    }
+
+    public function confirmaPix()
+    {
+        // Implementação webhook para confirmação do enviarPix
+        $conta->cobrarTarifa($chave, $valor, $mov_id); // Se tudo ok, cobrar tarifa 
     }
 
     public function criarConta($conta)
@@ -149,11 +156,11 @@ class NomeDoFornecedor
 
     public function criarContaPF()
     {
-        // implementação
+        // Implementação
     }
 
     public function criarContaPJ()
     {
-        // implementação
+        // Implementação
     }
 }
