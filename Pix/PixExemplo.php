@@ -135,7 +135,7 @@ class NomeDoFornecedor
         $this->receberPix($content); // Implementar receberPix
     }
 
-    public function receberPix()
+    public function receberPix($content)
     {
         // Implementação webhook
         $conta->cobrarTarifa($chave, $valor, $mov_id); // Se tudo ok, cobrar tarifa 

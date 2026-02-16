@@ -21,7 +21,7 @@ No cenário atual não é possível garantir isso para o método **enviarPix**, 
     public function criarChave(Conta $conta, ?string $tipo_chave, ?string $chave = null)
     {
 
-        // implementação
+        // Implementação
 
         return $response ?? null;
     }
@@ -34,18 +34,18 @@ No cenário atual não é possível garantir isso para o método **enviarPix**, 
     public function consultaChavePix($key, $conta, $internal = false)
     {
 
-        // implementação
+        // Implementação
 
         $dados = $response->body ?? null;
 
-        // as propriedades reais em $dados serão conforme a integração
+        // As propriedades reais em $dados serão conforme a integração
         if (empty($dados->key)) {
             return null;
         }
 
         $banco = Bancos::findOne(['ispb' => $dados->ispb]);
 
-        // retorno necessário ao app
+        // Retorno necessário ao app
         return [
             'end_to_end_id' => $dados->endToEndId,
             'chave' => $dados->key,
@@ -71,7 +71,7 @@ No cenário atual não é possível garantir isso para o método **enviarPix**, 
     public function excluirChave($conta, $key)
     {
 
-        // implementação
+        // Implementação
 
         return $response->body ?? '0';
     }
@@ -84,9 +84,9 @@ No cenário atual não é possível garantir isso para o método **enviarPix**, 
     public function geraQRCodeEstatico($conta, $valor, $pixelsModulo, $formatoImagem, $externo, $pix_key) 
     {
         
-        // implementação
+        // Implementação
 
-        // retorno necessário ao app
+        // Retorno necessário ao app
         return ($emv && $image) ? [
             'copia_cola'        => $emv,
             'qrcode'            => $image,
@@ -102,11 +102,11 @@ No cenário atual não é possível garantir isso para o método **enviarPix**, 
     public function consultaQRCode($emv, Conta $conta)
     {
         
-        // implementação
+        // Implementação
 
-        $dados = new \StdClass(); // ajuste as propriedades conforme o retorno da integração
+        $dados = new \StdClass(); // Ajuste as propriedades conforme o retorno da integração
 
-        // retorno necessário ao app
+        // Retorno necessário ao app
         return empty($dados->chave) ? false : [
             'chave' => $dados->chave,
             'dados_bancarios' => [
@@ -137,7 +137,7 @@ No cenário atual não é possível garantir isso para o método **enviarPix**, 
     public function enviarPix(float $value, string $mensagem, $chavePix, string $banco, string $numeroConta, string $agencia, string $documento, string $tipoConta, string $nome, Conta $conta, $identificadorTransacao, $endToEndId, ?string $type, ?int $movPixId)
     {
 
-        // implementação
+        // Implementação
 
         return $response->body->transactionCode ?? null;
     }
@@ -152,12 +152,25 @@ No cenário atual não é possível garantir isso para o método **enviarPix**, 
 /pix/pix/receber-pix
 ```
 ```php
-    public function retornoPix($content)
+    public function receberPix($content)
     {
-        $this->receberPix($content); // implementar receberPix
+        // Implementação webhook
+        $conta->cobrarTarifa($chave, $valor, $mov_id); // Se tudo ok, cobrar tarifa 
     }
 ```
-Neste caso é importante copiar de métodos já existentes em outras integrações toda a dinâmica envolvendo a model MovPix e o uso da geraMov em Conta.
+Nestse casos é importante copiar de métodos já existentes em outras integrações toda a dinâmica envolvendo a model MovPix e o uso da geraMov em Conta.
+---
+## Confirma enviar pix (webhook)
+```
+[sem webhook padrão]
+```
+```php
+    public function confirmaPix()
+    {
+        // Implementação webhook para confirmação do enviarPix
+        $conta->cobrarTarifa($chave, $valor, $mov_id); // Se tudo ok, cobrar tarifa 
+    }
+```
 ## Criar Conta
 ```
 /pix/pix/criar-conta-pf
@@ -166,7 +179,7 @@ Neste caso é importante copiar de métodos já existentes em outras integraçõ
 ```php
     public function criarConta($conta)
     {
-        return ($conta->usuario->tipoPessoa()==1) ? $this->criarContaPF($conta) : $this->criarContaPJ($conta); // implemente criarContaPF e criarContaPJ
+        return ($conta->usuario->tipoPessoa()==1) ? $this->criarContaPF($conta) : $this->criarContaPJ($conta); // Implemente criarContaPF e criarContaPJ
     }
 ```
 Neste caso, esse tipo de método deveria estar associado ao onboarding (dormentes).
