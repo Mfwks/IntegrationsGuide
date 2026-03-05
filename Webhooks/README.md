@@ -1,56 +1,56 @@
 # Webhooks
 Webhooks
 
+# Celcoin
+```php
+        $webhooks = [
+            'onboarding-backgroundcheck' => 'r=pix/pix/webhook', # Não implementado
+            'onboarding-documentscopy' => 'r=pix/pix/webhook', # Não implementado
+            'onboarding-file' => 'r=pix/pix/webhook', # Não implementado
+            'onboarding-proposal' => 'r=pix/pix/webhook', # Não implementado
+            'onboarding-create' => 'r=pix/pix/receber-pix',
 
-Celcoin
+            'internal-transfer-in' => 'r=pix/pix/webhook', # Não implementado
+            'internal-transfer-out' => 'r=pix/pix/receber-pix',
 
-$webhooks = [
-    'onboarding-backgroundcheck' => '',
-    'onboarding-documentscopy' => '',
-    'onboarding-file' => '',
-    'onboarding-proposal' => '',
-    'onboarding-create' => 'r=pix/pix/receber-pix',
+            'pix-payment-out' => 'r=pix/pix/receber-pix',
+            'pix-payment-in' => 'r=pix/pix/receber-pix',
+            'pix-reversal-out' => 'r=pix/pix/webhook', # Não implementado
+            'pix-reversal-in' => 'r=pix/pix/webhook', # Não implementado
 
-    'internal-transfer-in' => '',
-    'internal-transfer-out' => 'r=pix/pix/receber-pix',
+            'pix-automatic-recurrency-awaiting-debtor' => 'r=pix/pix/webhook', # Não implementado
+            'pix-automatic-recurrency-completed' => 'r=pix/pix/webhook', # Não implementado
+            'pix-automatic-payment-instruction-cashin' => 'r=pix/pix/webhook', # Não implementado
+            'pix-automatic-payment-instruction-expired' => 'r=pix/pix/webhook', # Não implementado
+            'pix-automatic-payment-instruction-completed' => 'r=pix/pix/webhook', # Não implementado
+            'pix-automatic-payment-instruction-cancelled' => 'r=pix/pix/webhook', # Não implementado
 
-    'pix-payment-out' => 'r=pix/pix/receber-pix',
-    'pix-payment-in' => 'r=pix/pix/receber-pix',
-    'pix-reversal-out' => '',
-    'pix-reversal-in' => '',
+            'pix-dict-claim-open' => 'r=pix/pix/receber-pix',
+            'pix-dict-claim-waiting' => 'r=pix/pix/receber-pix',
+            'pix-dict-claim-confirmed' => 'r=pix/pix/receber-pix',
+            'pix-dict-claim-cancelled' => 'r=pix/pix/receber-pix',
+            'pix-dict-claim-completed' => 'r=pix/pix/receber-pix',
 
-    'pix-automatic-recurrency-awaiting-debtor' => '',
-    'pix-automatic-recurrency-completed' => '',
-    'pix-automatic-payment-instruction-cashin' => '',
-    'pix-automatic-payment-instruction-expired' => '',
-    'pix-automatic-payment-instruction-completed' => '',
-    'pix-automatic-payment-instruction-cancelled' => '',
+            'spb-transfer-out' => 'r=baas/webhook/celcoin/transfer-in',
+            'spb-transfer-in' => 'r=baas/webhook/celcoin/transfer-out',
+            'spb-reversal-in' => 'r=baas/webhook/celcoin/reversal-in',
+            'spb-reversal-out' => 'r=baas/webhook/celcoin/reversal-out',
 
-    'pix-dict-claim-open' => 'r=pix/pix/receber-pix',
-    'pix-dict-claim-waiting' => 'r=pix/pix/receber-pix',
-    'pix-dict-claim-confirmed' => 'r=pix/pix/receber-pix',
-    'pix-dict-claim-cancelled' => 'r=pix/pix/receber-pix',
-    'pix-dict-claim-completed' => 'r=pix/pix/receber-pix',
+            'charge-in' => 'r=pix/pix/webhook', # Não implementado
+            'charge-create' => 'r=boleto/webhook/celcoin/charge-create',
+            'charge-canceled' => 'r=boleto/webhook/celcoin/charge-in',
+            'charge-expired' => 'r=pix/pix/webhook', # Não implementado
 
-    'spb-transfer-out' => 'r=baas/webhook/celcoin/transfer-in',
-    'spb-transfer-in' => 'r=baas/webhook/celcoin/transfer-out',
-    'spb-reversal-in' => 'r=baas/webhook/celcoin/reversal-in',
-    'spb-reversal-out' => 'r=baas/webhook/celcoin/reversal-out',
+            'billpayment' => 'r=boleto/webhook/celcoin/pagamento',
+            'billpayment-occurrence' => 'r=boleto/webhook/celcoin/pagamento',
 
-    'charge-in' => '',
-    'charge-create' => 'r=boleto/webhook/celcoin/charge-create',
-    'charge-canceled' => 'r=boleto/webhook/celcoin/charge-in',
-    'charge-expired' => '',
+            'judicial-movement-in' => 'r=pix-bloqueados/webhook-celcoin',
+            'judicial-movement-out' => 'r=pix-bloqueados/webhook-celcoin',
+            'account-status' => 'r=pix/pix/webhook', # Não implementado
 
-    'billpayment' => 'r=boleto/webhook/celcoin/pagamento',
-    'billpayment-occurrence' => 'r=boleto/webhook/celcoin/pagamento',
+            'launch-in' => 'r=pix/pix/webhook', # Não implementado
+            'launch-out' => 'r=pix/pix/webhook', # Não implementado
 
-    'judicial-movement-in' => 'r=pix-bloqueados/webhook-celcoin',
-    'judicial-movement-out' => 'r=pix-bloqueados/webhook-celcoin',
-    'account-status' => '',
-
-    'launch-in' => '',
-    'launch-out' => '',
-
-    'kyc' => 'r=pix/pix/receber-pix'
-];
+            'kyc' => 'r=pix/pix/receber-pix'
+        ];
+```
