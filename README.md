@@ -17,3 +17,7 @@
 4. Guia de Integrações: Pix
 5. Guia de Integrações: Tarifas
 6. Guia de Integrações: Transferências
+
+## Procedimentos para Escrutínio de Conciliação
+
+https://microframeworks.com/tools/pair-by/ordinary-procedures
